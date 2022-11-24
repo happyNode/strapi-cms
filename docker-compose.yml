@@ -1,0 +1,14 @@
+version: '3'
+services:
+  strapi:
+    image: strapi-cms
+    restart: unless-stopped
+    container_name: strapi-cms
+    build:
+      context: ./ #表示dockerfile文件存在的目录
+      dockerfile: Dockerfile #表示dockerfile的文件名
+    volumes:
+      - ./.env:/home/.env
+      - ./public:/home/public
+    ports:
+      - '1337:1337'
